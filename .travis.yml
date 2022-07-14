@@ -1,0 +1,11 @@
+dist: focal
+language: java
+sudo: true
+jdk: openjdk17
+before_install:
+  - chmod +x mvnw ./build.sh
+install:
+  - mvn test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+script: ./build.sh
+after_success:
+  - mvn coveralls:report
