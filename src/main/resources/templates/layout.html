@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <title>Studious</title>
+    <meta charset="UTF-8" />
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" th:href="@{/dashboard}">
+            Studious
+        </a>
+        <input class="btn btn-outline-light my-2 my-sm-0" type="button" value="Sair" th:onClick="'location.href=\'' + @{/logout} + '\';'">
+    </nav>
+</header>
+<!-- Cabeçalho - Fim -->
+
+<!-- Conteúdo -->
+<div layout:fragment="content"></div>
+
+<!-- Rodapé - Início -->
+<br /><br />
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+<script>
+    $('#file').on('change',function(){
+        var fileName = $(this).val();
+        $(this).next('.custom-file-label').html(fileName);
+    });
+</script>
+</body>
+</html>
